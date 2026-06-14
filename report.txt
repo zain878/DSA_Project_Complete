@@ -1,0 +1,81 @@
+=== PLAGIARISM REPORT ===
+Similarity: 32.81%
+
+Common Tokens: [Add, import, HashMap, main, String, put, System, out, println, java, public, class, new, a, static, void, args, Integer, the, util, to]
+
+Unique Tokens (File1): [Add, through, HashMap, Iterate, John, main, String, put, java, new, getKey, static, void, entrySet, entry, util, Map, 25, import, for, GFG, System, out, Entry, println, public, Create, class, 30, a, 35, Jane, Jim, args, Integer, the, getValue, elements, to, hashMap]
+Unique Tokens (File2): [Initialization, Add, HashMap, main, Mapping, String, type, put, java, new, using, static, void, method, need, io, For, 1, twice, 2, 3, util, import, Generic, AddElementsToHashMap, hm2, Elements, hm1, System, mention, out, println, public, are, of, Geeks, class, Generics, No, a, args, the, Integer, Mappings, to]
+
+Sorted Keywords: [1, 2, 25, 3, 30, 35, Add, AddElementsToHashMap, Create, Elements, Entry, For, GFG, Geeks, Generic, Generics, HashMap, Initialization, Integer, Iterate, Jane, Jim, John, Map, Mapping, Mappings, No, String, System, a, are, args, class, elements, entry, entrySet, for, getKey, getValue, hashMap, hm1, hm2, import, io, java, main, mention, method, need, new, of, out, println, public, put, static, the, through, to, twice, type, using, util, void]
+
+Bracket Check File1: Balanced
+Bracket Check File2: Balanced
+
+Token Frequency:
+Add -> 2
+through -> 1
+Initialization -> 1
+HashMap -> 13
+Iterate -> 1
+John -> 1
+main -> 2
+Mapping -> 1
+String -> 7
+type -> 1
+put -> 10
+java -> 4
+new -> 3
+getKey -> 1
+using -> 2
+static -> 2
+void -> 2
+method -> 1
+entrySet -> 1
+need -> 1
+io -> 1
+For -> 2
+entry -> 3
+1 -> 2
+twice -> 1
+2 -> 2
+3 -> 2
+util -> 3
+Map -> 2
+25 -> 1
+import -> 4
+Generic -> 1
+AddElementsToHashMap -> 1
+for -> 1
+GFG -> 1
+hm2 -> 6
+Elements -> 1
+hm1 -> 6
+System -> 3
+out -> 3
+mention -> 1
+Entry -> 1
+println -> 3
+public -> 3
+are -> 2
+Create -> 1
+of -> 3
+Geeks -> 4
+class -> 2
+30 -> 1
+Generics -> 1
+a -> 2
+No -> 1
+35 -> 1
+Jane -> 1
+Jim -> 1
+args -> 2
+Integer -> 5
+the -> 3
+getValue -> 1
+Mappings -> 1
+elements -> 1
+to -> 2
+hashMap -> 5
+
+Recent Comparison History:
+Comparison done at Tue Jun 09 19:06:38 PKT 2026
