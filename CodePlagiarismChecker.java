@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -26,20 +25,11 @@ public class CodePlagiarismChecker extends JFrame {
 
     public CodePlagiarismChecker() {
         setTitle("Code Plagiarism Checker - DSA Project");
-        setSize(900, 600);
+        // Better window size and center location
+        setSize(1200, 800);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-
-        // Top Panels (Code Inputs)
-        JPanel topPanel = new JPanel(new GridLayout(1, 2));
-
-        code1Area = new JTextArea();
-        code2Area = new JTextArea();
-
-        topPanel.add(new JScrollPane(code1Area));
-        topPanel.add(new JScrollPane(code2Area));
-
-        add(topPanel, BorderLayout.NORTH);
 
         // Buttons Panel
         JPanel buttonPanel = new JPanel();
@@ -56,12 +46,52 @@ public class CodePlagiarismChecker extends JFrame {
         buttonPanel.add(save);
         buttonPanel.add(clear);
 
-        add(buttonPanel, BorderLayout.CENTER);
+        // Better Design :  Side-by-Side Code Panel
+        JPanel codePanel = new JPanel(new GridLayout(1, 2));
 
-        // Result Area
+        code1Area = new JTextArea();
+        code2Area = new JTextArea();
+
+        code1Area.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        code2Area.setFont(new Font("Monospaced", Font.PLAIN, 14));
+
+        // Better Design: Handle text area wrapping appropriately
+        code1Area.setLineWrap(false);
+        code2Area.setLineWrap(false);
+
+        JScrollPane code1Scroll = new JScrollPane(code1Area);
+        JScrollPane code2Scroll = new JScrollPane(code2Area);
+
+        codePanel.add(code1Scroll);
+        codePanel.add(code2Scroll);
+
+        // Result Panel
         resultArea = new JTextArea();
         resultArea.setEditable(false);
-        add(new JScrollPane(resultArea), BorderLayout.SOUTH);
+        resultArea.setFont(new Font("Monospaced", Font.PLAIN, 13));
+        
+        // Better Design: Report text area wrapping rules
+        resultArea.setLineWrap(true);
+        resultArea.setWrapStyleWord(true);
+
+        JScrollPane resultScroll = new JScrollPane(resultArea);
+
+        // Better Design: Combine with Vertical JSplitPane
+        JSplitPane splitPane = new JSplitPane(
+                JSplitPane.VERTICAL_SPLIT,
+                codePanel,
+                resultScroll
+        );
+
+        splitPane.setResizeWeight(0.7);
+        // Better Design: Set Divider location and minimum sizes to prevent collapsing
+        splitPane.setDividerLocation(350);
+        codePanel.setMinimumSize(new Dimension(200, 200));
+        resultScroll.setMinimumSize(new Dimension(200, 100));
+
+        // Better Design: Correct layout positioning for proper resizing behavior
+        add(buttonPanel, BorderLayout.NORTH);
+        add(splitPane, BorderLayout.CENTER);
 
         // Actions
         load1.addActionListener(e -> loadFile(1));
@@ -83,9 +113,13 @@ public class CodePlagiarismChecker extends JFrame {
                 if (which == 1) {
                     file1 = file;
                     code1Area.setText(content);
+                    // Better Design: Reset scroll to top
+                    code1Area.setCaretPosition(0);
                 } else {
                     file2 = file;
                     code2Area.setText(content);
+                    // Better Design: Reset scroll to top
+                    code2Area.setCaretPosition(0);
                 }
 
             } catch (Exception ex) {
@@ -176,7 +210,6 @@ public class CodePlagiarismChecker extends JFrame {
         return list;
     }
 
-   
     private void buildFrequency(List<String> tokens) {
         for (String t : tokens) {
             frequencyMap.put(t, frequencyMap.getOrDefault(t, 0) + 1);
